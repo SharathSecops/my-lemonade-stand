@@ -1,0 +1,12 @@
+name: Lemonade Security Check
+on: [push]
+
+jobs:
+  sast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find Bugs with Semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: p/security-audit  # Rules to catch bugs!
